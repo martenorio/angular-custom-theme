@@ -12,7 +12,7 @@
 //Para utilizar una paleta hexadecimal personalizada para un Angular - Material, deberá definir los diferentes tonos y los colores de contraste para la paleta, incluso si solo desea un color. Sugeriría usar al menos 3 colores (claro, normal, oscuro) para que funcione perfectamente con las animaciones integradas de Material:
 
 // below defines your custom color to build a theme palette from
-$coflex-blue: (
+$mytheme-blue: (
     50 : #e0e4eb,
     100 : #b3bcce,
     200 : #8090ad,
@@ -45,7 +45,7 @@ $coflex-blue: (
     )
 );
 
-$coflex-red: (
+$mytheme-red: (
     50 : #fae0e5,
     100 : #f3b3be,
     200 : #ec8093,
@@ -78,7 +78,7 @@ $coflex-red: (
     )
 );
 
-$coflex-yellow: (
+$mytheme-yellow: (
     50 : #fff8e6,
     100 : #ffeec0,
     200 : #ffe296,
@@ -110,7 +110,7 @@ $coflex-yellow: (
         A700 : #000000,
     )
 );
-$coflex-gray: (
+$mytheme-gray: (
     50 : #e9edee,
     100 : #c9d1d5,
     200 : #a5b2b9,
@@ -143,7 +143,7 @@ $coflex-gray: (
     )
 );
 
-$coflex-green: (
+$mytheme-green: (
     50 : #e5f4f3,
     100 : #bee4e1,
     200 : #93d3cd,
@@ -177,19 +177,19 @@ $coflex-green: (
 );
 
 //custom color
-$my-app-gray: mat-palette($coflex-gray, 500, 900, A100);
+$my-app-gray: mat-palette($mytheme-gray, 500, 900, A100);
 
-$my-app-primary: mat-palette($coflex-blue, 500,900,A100);
-$my-app-accent:  mat-palette($coflex-yellow, 500, 900, A100);
-$my-app-warn:    mat-palette($coflex-red, 500,900,A100);
+$my-app-primary: mat-palette($mytheme-blue, 500,900,A100);
+$my-app-accent:  mat-palette($mytheme-yellow, 500, 900, A100);
+$my-app-warn:    mat-palette($mytheme-red, 500,900,A100);
 $my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warn);
 
 @include angular-material-theme($my-app-theme);
 
 .alternate-theme {
-  $alternate-primary: mat-palette($coflex-gray, 500, 900, A100);
-  $alternate-accent: mat-palette($coflex-green, 500, 900, A100);
-  $alternate-warn: mat-palette($coflex-red, 400,900,A100);
+  $alternate-primary: mat-palette($mytheme-gray, 500, 900, A100);
+  $alternate-accent: mat-palette($mytheme-green, 500, 900, A100);
+  $alternate-warn: mat-palette($mytheme-red, 400,900,A100);
   $alternate-theme: mat-light-theme($alternate-primary, $alternate-accent, $alternate-warn);
   @include angular-material-theme($alternate-theme);
 }
