@@ -137,3 +137,15 @@
     Warning
   </button>
 </div>
+
+<div>
+  <form [formGroup]="myForm" (ngSubmit)="doSomething()">
+    <input formControlName="email" />
+    <!-- <span *ngIf="email.errors && email.errors.email">Ingrese un email válido</span> -->
+    <span *ngIf="!validInput(myForm,'email','email')">Ingrese un email válido</span>
+    <span *ngIf="!validInput(myForm,'email')">Ingrese su email</span>
+    <input type="password" formControlName="password" />
+    <!-- <span *ngIf="email.errors && email.required">Ingrese su contraseña</span> -->
+    <button type="submit">Registrarme</button>
+  </form>
+</div>
