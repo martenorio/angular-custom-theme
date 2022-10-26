@@ -8,6 +8,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 })
 export class AppComponent {
   public myForm: FormGroup;
+  public vis = true;
   
   constructor(private fb: FormBuilder) {
     this.myForm = this.fb.group({
@@ -26,7 +27,29 @@ export class AppComponent {
   ngOnInit() {
     this.doSomething()
   }
-
+  async data(){
+    // console.log('got here with name:', name)
+    // if (!name) return;
+    //await caches.delete("./assets/img/web.png");
+    console.log('finish');
+    this.deletecache()
+    
+  }
+  deletecache(){
+    let cacheName = "v1"; 
+    let urlToDelete = 'http://127.0.0.1:5500/img/web.png';
+    caches.open(cacheName).then(cache => {
+      cache.keys().then( (arrayOfRequest) => { 
+        console.log(arrayOfRequest); // [Request,  Request]
+      });
+      cache.delete(urlToDelete)
+    })
+    caches.open("http://127.0.0.1:5500/img/web.png").then((cache) => {
+      cache.delete("/images/image.png").then((response) => {
+       console.log(response)
+      });
+    });
+  }
   doSomething(){
     console.log(this.myForm.valid,this.myForm.value)
   }
